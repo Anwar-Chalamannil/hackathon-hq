@@ -1,0 +1,65 @@
+.dashboard {
+  margin-bottom: var(--space-5);
+}
+
+.dashboard__progress {
+  padding: var(--space-3);
+  margin-bottom: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.dashboard__progress-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.dashboard__percent {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.dashboard__progress-label {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.dashboard__bar {
+  height: 10px;
+  background: var(--badge-neutral-bg);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.dashboard__bar-fill {
+  height: 100%;
+  background: var(--badge-green-fg);
+  border-radius: inherit;
+  transition: width 0.3s ease; /* the bar slides when progress changes */
+}
+
+/* 2 columns on phones, 5 in a row once there's room */
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+/* 5 cards in 2 columns would leave one alone, so "Total" takes a full row */
+.dashboard__stats > :first-child {
+  grid-column: span 2;
+}
+
+@media (min-width: 720px) {
+  .dashboard__stats {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dashboard__stats > :first-child {
+    grid-column: auto;
+  }
+}

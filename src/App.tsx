@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Button from './components/common/Button'
 import Modal from './components/common/Modal'
+import Dashboard from './components/Dashboard/Dashboard'
 import TaskForm from './components/TaskForm/TaskForm'
 import TaskList from './components/TaskList/TaskList'
 import { useTasks } from './hooks/useTasks'
@@ -60,6 +61,8 @@ function App() {
       </header>
 
       <main className="app-main">
+        <Dashboard tasks={tasks} />
+
         <section aria-labelledby="tasks-heading">
           <h2 id="tasks-heading" className="section-title">
             Tasks <span className="section-count">{tasks.length}</span>

@@ -28,7 +28,7 @@ npm run lint    # check code with oxlint
 - [x] 2. Data model + storage
 - [x] 3. Task list
 - [x] 4. Create / edit / delete
-- [ ] 5. Dashboard
+- [x] 5. Dashboard
 - [ ] 6. Search, filters + tests
 - [ ] 7. Responsive polish
 - [ ] 8. Supabase + deploy (later)

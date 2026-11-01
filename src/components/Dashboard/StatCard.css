@@ -1,0 +1,29 @@
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--stat-accent);
+  border-radius: var(--radius);
+}
+
+.stat-card__value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums; /* digits all the same width */
+}
+
+.stat-card__label {
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+/* Each tone sets one variable; the border above uses it */
+.stat-card--neutral { --stat-accent: var(--color-border); }
+.stat-card--blue    { --stat-accent: var(--badge-blue-fg); }
+.stat-card--amber   { --stat-accent: var(--badge-amber-fg); }
+.stat-card--green   { --stat-accent: var(--badge-green-fg); }
+.stat-card--red     { --stat-accent: var(--badge-red-fg); }
