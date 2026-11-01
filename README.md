@@ -25,7 +25,7 @@ npm run lint    # check code with oxlint
 ## Milestones
 
 - [x] 1. Setup
-- [ ] 2. Data model + storage
+- [x] 2. Data model + storage
 - [ ] 3. Task list
 - [ ] 4. Create / edit / delete
 - [ ] 5. Dashboard
