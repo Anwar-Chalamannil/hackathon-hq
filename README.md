@@ -1,5 +1,7 @@
 # Hackathon HQ
 
+**Live demo: https://hackathon-hq-zeta.vercel.app**
+
 > **Practice build** to learn React + TypeScript + Vite before the MES hackathon.
 > Not an event submission. Deadline and judging criteria: n/a (practice).
 
@@ -7,11 +9,14 @@ A responsive web app that helps hackathon teams manage their project:
 dashboard stats, tasks with status / priority / due date / category,
 search and filters, and data that survives a page reload.
 
+Tasks are saved in your own browser (localStorage), so each visitor has their own board.
+
 ## Tech
 
 - React + TypeScript, built with Vite
 - Plain CSS (variables in `src/styles/global.css`, one CSS file per component)
 - Storage: browser `localStorage` for now, Supabase later
+- Hosting: Vercel, auto-deploys every push to `main`
 
 ## Run it
 
@@ -41,4 +46,5 @@ Vitest + React Testing Library, running in jsdom (a fake browser).
 - [x] 5. Dashboard
 - [x] 6. Search, filters + tests
 - [x] 7. Responsive polish
-- [ ] 8. Supabase + deploy (later)
+- [x] 8a. Deploy to Vercel
+- [ ] 8b. Supabase
