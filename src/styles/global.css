@@ -1,0 +1,63 @@
+/* Global styles: design tokens (CSS variables) + base element styles.
+   Component-specific styles live next to each component. */
+:root {
+  --color-bg: #f6f7fb;
+  --color-surface: #ffffff;
+  --color-text: #1c1f2a;
+  --color-muted: #5f6577;
+  --color-border: #e2e5ee;
+  --color-primary: #6d28d9;
+  --color-primary-hover: #5b21b6;
+
+  --radius: 10px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #12131a;
+    --color-surface: #1c1e27;
+    --color-text: #eceef4;
+    --color-muted: #a0a6b8;
+    --color-border: #2c2f3b;
+    --color-primary: #a78bfa;
+    --color-primary-hover: #c4b5fd;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
