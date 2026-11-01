@@ -43,5 +43,10 @@ export function useTasks() {
     setTasks((current) => current.filter((task) => task.id !== id))
   }
 
-  return { tasks, addTask, updateTask, deleteTask }
+  // Handy for demos: refill an empty board with the example tasks
+  function addSampleTasks() {
+    setTasks((current) => [...current, ...createSampleTasks()])
+  }
+
+  return { tasks, addTask, updateTask, deleteTask, addSampleTasks }
 }

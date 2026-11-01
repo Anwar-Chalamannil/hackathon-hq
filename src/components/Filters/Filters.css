@@ -39,3 +39,7 @@
 .filters__clear {
   align-self: flex-start;
 }
+
+@media (pointer: coarse) {
+  .filters__field .field-control { min-height: 40px; }
+}

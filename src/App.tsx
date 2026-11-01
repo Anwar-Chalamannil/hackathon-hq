@@ -18,7 +18,7 @@ import {
 import './App.css'
 
 function App() {
-  const { tasks, addTask, updateTask, deleteTask } = useTasks()
+  const { tasks, addTask, updateTask, deleteTask, addSampleTasks } = useTasks()
 
   // Which popups are open. `null` means "closed".
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -97,6 +97,10 @@ function App() {
               {isFiltered ? `${visibleTasks.length} of ${tasks.length}` : tasks.length}
             </span>
           </h2>
+          {/* Screen readers announce changes inside role="status" automatically */}
+          <p role="status" className="visually-hidden">
+            {isFiltered ? `Showing ${visibleTasks.length} of ${tasks.length} tasks` : ''}
+          </p>
           <Filters
             filters={filters}
             sort={sort}
@@ -119,7 +123,16 @@ function App() {
                   </Button>
                 </>
               ) : (
-                <p>No tasks yet. Click “+ New task” to add your first one.</p>
+                <>
+                  <p className="empty-title">No tasks yet</p>
+                  <p>Break your hackathon project into small tasks to track progress.</p>
+                  <div className="empty-actions">
+                    <Button variant="primary" onClick={openCreateForm}>
+                      + New task
+                    </Button>
+                    <Button onClick={addSampleTasks}>Add sample tasks</Button>
+                  </div>
+                </>
               )
             }
           />

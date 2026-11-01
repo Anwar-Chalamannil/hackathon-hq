@@ -39,3 +39,7 @@
 .button--ghost:hover { background: var(--badge-neutral-bg); color: var(--color-text); }
 
 .button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+@media (pointer: coarse) {
+  .button--sm { min-height: 40px; padding-inline: var(--space-3); }
+}

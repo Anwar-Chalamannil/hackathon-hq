@@ -40,5 +40,5 @@ Vitest + React Testing Library, running in jsdom (a fake browser).
 - [x] 4. Create / edit / delete
 - [x] 5. Dashboard
 - [x] 6. Search, filters + tests
-- [ ] 7. Responsive polish
+- [x] 7. Responsive polish
 - [ ] 8. Supabase + deploy (later)

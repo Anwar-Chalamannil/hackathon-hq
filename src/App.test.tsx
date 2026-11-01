@@ -20,6 +20,15 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: 'Sketch the main screens' })).toBeInTheDocument()
   })
 
+  it('shows a helpful empty state and can add sample tasks', () => {
+    localStorage.setItem('hackathon-hq:tasks', '[]') // a returning user who deleted everything
+    render(<App />)
+
+    expect(screen.getByText('No tasks yet')).toBeInTheDocument()
+    fireEvent.click(screen.getByRole('button', { name: 'Add sample tasks' }))
+    expect(visibleTaskTitles()).toHaveLength(5)
+  })
+
   it('creates a task through the form and saves it', () => {
     render(<App />)
 
