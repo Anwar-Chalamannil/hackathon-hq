@@ -1,7 +1,9 @@
 import Badge, { type BadgeTone } from '../common/Badge'
+import Button from '../common/Button'
 import {
   PRIORITY_LABELS,
   STATUS_LABELS,
+  TASK_STATUSES,
   type Task,
   type TaskPriority,
   type TaskStatus,
@@ -24,9 +26,12 @@ const PRIORITY_TONES: Record<TaskPriority, BadgeTone> = {
 
 interface TaskCardProps {
   task: Task
+  onStatusChange: (status: TaskStatus) => void
+  onEdit: () => void
+  onDelete: () => void
 }
 
-function TaskCard({ task }: TaskCardProps) {
+function TaskCard({ task, onStatusChange, onEdit, onDelete }: TaskCardProps) {
   const overdue = isOverdue(task)
   const completed = task.status === 'completed'
 
@@ -53,6 +58,27 @@ function TaskCard({ task }: TaskCardProps) {
           </span>
         )}
       </footer>
+
+      <div className="task-card__actions">
+        <select
+          className="field-control task-card__status"
+          value={task.status}
+          aria-label={`Status of ${task.title}`}
+          onChange={(event) => onStatusChange(event.target.value as TaskStatus)}
+        >
+          {TASK_STATUSES.map((value) => (
+            <option key={value} value={value}>
+              {STATUS_LABELS[value]}
+            </option>
+          ))}
+        </select>
+        <Button size="sm" variant="ghost" onClick={onEdit} aria-label={`Edit ${task.title}`}>
+          Edit
+        </Button>
+        <Button size="sm" variant="ghost" onClick={onDelete} aria-label={`Delete ${task.title}`}>
+          Delete
+        </Button>
+      </div>
     </article>
   )
 }

@@ -27,7 +27,7 @@ npm run lint    # check code with oxlint
 - [x] 1. Setup
 - [x] 2. Data model + storage
 - [x] 3. Task list
-- [ ] 4. Create / edit / delete
+- [x] 4. Create / edit / delete
 - [ ] 5. Dashboard
 - [ ] 6. Search, filters + tests
 - [ ] 7. Responsive polish
