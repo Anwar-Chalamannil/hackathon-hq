@@ -16,3 +16,11 @@
   border: 1px dashed var(--color-border);
   border-radius: var(--radius);
 }
+
+.task-list__empty p {
+  margin: 0 0 var(--space-2);
+}
+
+.task-list__empty p:last-child {
+  margin-bottom: 0;
+}

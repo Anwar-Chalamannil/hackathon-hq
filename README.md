@@ -20,7 +20,17 @@ npm install     # first time only
 npm run dev     # start the dev server, open the URL it prints
 npm run build   # type-check + production build
 npm run lint    # check code with oxlint
+npm test        # run tests and re-run them as you edit (Ctrl+C to stop)
+npm run test:run # run tests once
 ```
+
+## Tests
+
+Vitest + React Testing Library, running in jsdom (a fake browser).
+
+- `src/utils/*.test.ts`: dates, dashboard stats, search / filter / sort
+- `src/services/taskStorage.test.ts`: saving, loading, broken saved data
+- `src/App.test.tsx`: create, validate, delete, and filter like a real user
 
 ## Milestones
 
@@ -29,6 +39,6 @@ npm run lint    # check code with oxlint
 - [x] 3. Task list
 - [x] 4. Create / edit / delete
 - [x] 5. Dashboard
-- [ ] 6. Search, filters + tests
+- [x] 6. Search, filters + tests
 - [ ] 7. Responsive polish
 - [ ] 8. Supabase + deploy (later)

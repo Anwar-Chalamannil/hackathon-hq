@@ -2,10 +2,19 @@ import { useState } from 'react'
 import Button from './components/common/Button'
 import Modal from './components/common/Modal'
 import Dashboard from './components/Dashboard/Dashboard'
+import Filters from './components/Filters/Filters'
 import TaskForm from './components/TaskForm/TaskForm'
 import TaskList from './components/TaskList/TaskList'
 import { useTasks } from './hooks/useTasks'
 import type { NewTask, Task } from './types/task'
+import {
+  DEFAULT_FILTERS,
+  filterTasks,
+  hasActiveFilters,
+  sortTasks,
+  type SortOption,
+  type TaskFilters,
+} from './utils/taskFilters'
 import './App.css'
 
 function App() {
@@ -16,8 +25,26 @@ function App() {
   const [editingTask, setEditingTask] = useState<Task | null>(null)
   const [taskToDelete, setTaskToDelete] = useState<Task | null>(null)
 
-  // Unique category names, for the form's suggestions
+  const [filters, setFilters] = useState<TaskFilters>(DEFAULT_FILTERS)
+  const [sort, setSort] = useState<SortOption>('newest')
+
+  // Unique category names, for the form's suggestions and the category filter
   const categories = [...new Set(tasks.map((task) => task.category))].sort()
+
+  // Derived from tasks + filters + sort on every render (like the dashboard stats)
+  const visibleTasks = sortTasks(filterTasks(tasks, filters), sort)
+  const isFiltered = hasActiveFilters(filters)
+
+  // If you delete the last task in the filtered category, keep that category
+  // in the dropdown so the filter still shows what's selected
+  const filterCategories =
+    filters.category === 'all' || categories.includes(filters.category)
+      ? categories
+      : [...categories, filters.category]
+
+  function clearFilters() {
+    setFilters(DEFAULT_FILTERS)
+  }
 
   function openCreateForm() {
     setEditingTask(null)
@@ -65,13 +92,36 @@ function App() {
 
         <section aria-labelledby="tasks-heading">
           <h2 id="tasks-heading" className="section-title">
-            Tasks <span className="section-count">{tasks.length}</span>
+            Tasks{' '}
+            <span className="section-count">
+              {isFiltered ? `${visibleTasks.length} of ${tasks.length}` : tasks.length}
+            </span>
           </h2>
+          <Filters
+            filters={filters}
+            sort={sort}
+            categories={filterCategories}
+            onFiltersChange={setFilters}
+            onSortChange={setSort}
+            onClear={clearFilters}
+          />
           <TaskList
-            tasks={tasks}
+            tasks={visibleTasks}
             onStatusChange={(id, status) => updateTask(id, { status })}
             onEdit={openEditForm}
             onDelete={setTaskToDelete}
+            emptyMessage={
+              isFiltered ? (
+                <>
+                  <p>No tasks match your filters.</p>
+                  <Button size="sm" onClick={clearFilters}>
+                    Clear filters
+                  </Button>
+                </>
+              ) : (
+                <p>No tasks yet. Click “+ New task” to add your first one.</p>
+              )
+            }
           />
         </section>
       </main>
