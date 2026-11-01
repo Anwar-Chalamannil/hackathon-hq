@@ -1,0 +1,59 @@
+.task-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+  padding: var(--space-3);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.task-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.task-card__title {
+  font-size: 1rem;
+  font-weight: 600;
+  overflow-wrap: anywhere; /* long words wrap instead of overflowing on phones */
+}
+
+.task-card__description {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  /* Show at most 3 lines, then "…" */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* margin-top: auto pushes the footer to the bottom, so cards line up */
+.task-card__footer {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+}
+
+.task-card__category {
+  font-weight: 500;
+}
+
+.task-card__due--overdue {
+  color: var(--badge-red-fg);
+  font-weight: 600;
+}
+
+.task-card--completed .task-card__title {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}

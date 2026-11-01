@@ -9,6 +9,18 @@
   --color-primary: #6d28d9;
   --color-primary-hover: #5b21b6;
 
+  /* Badge colours: a soft background + a strong text colour */
+  --badge-neutral-bg: #eef0f5;
+  --badge-neutral-fg: #444a5c;
+  --badge-blue-bg: #e0ecff;
+  --badge-blue-fg: #1d4ed8;
+  --badge-amber-bg: #fdf0d5;
+  --badge-amber-fg: #9a5b00;
+  --badge-green-bg: #dcf5e6;
+  --badge-green-fg: #17733f;
+  --badge-red-bg: #fde2e2;
+  --badge-red-fg: #b42318;
+
   --radius: 10px;
   --space-1: 4px;
   --space-2: 8px;
@@ -30,6 +42,17 @@
     --color-border: #2c2f3b;
     --color-primary: #a78bfa;
     --color-primary-hover: #c4b5fd;
+
+    --badge-neutral-bg: #2a2d39;
+    --badge-neutral-fg: #c9cede;
+    --badge-blue-bg: #1c2b4a;
+    --badge-blue-fg: #93b8ff;
+    --badge-amber-bg: #3a2c12;
+    --badge-amber-fg: #f5c46b;
+    --badge-green-bg: #16352a;
+    --badge-green-fg: #7ddba6;
+    --badge-red-bg: #401c1f;
+    --badge-red-fg: #ff9b94;
   }
 }
 

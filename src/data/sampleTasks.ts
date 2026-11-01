@@ -1,14 +1,13 @@
 // Example tasks shown on the very first visit, so the app isn't empty.
 // Due dates are relative to today, so there's always one overdue task to show.
 import type { Task } from '../types/task'
+import { toDateString } from '../utils/dates'
 
 // Returns a 'YYYY-MM-DD' string `days` from today, in local time.
 function daysFromToday(days: number): string {
   const date = new Date()
   date.setDate(date.getDate() + days)
-  const month = String(date.getMonth() + 1).padStart(2, '0')
-  const day = String(date.getDate()).padStart(2, '0')
-  return `${date.getFullYear()}-${month}-${day}`
+  return toDateString(date)
 }
 
 export function createSampleTasks(): Task[] {
